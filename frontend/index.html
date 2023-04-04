@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>BTP2</title>
+</head>
+<body>
+    <div class="nav">
+        <p>BTP</p>
+    </div>
+
+    <div class="container">
+
+        <div class="row1">
+            <div class="input_field">
+                <input type="text" name="" id="name" required>
+                <label for="name">Name </label>
+            </div>
+
+            <div class="input_field">
+                <input type="text" name="" id="date"  required>
+                <label for="date">DOB </label>
+            </div>
+
+            <div class="input_field">
+                <input type="text" name="" id="account" value="0xAshuForNow" required>
+                <label for="account">Account </label>
+            </div>
+        </div>
+
+        <div class="row2">
+            <div class="input_field">
+                <input type="text" name="" id="roll" value="20uec038" required>
+                <label for="roll">Roll no.</label>
+            </div>
+
+            <div class="input_field">
+                <input type="text" name="" id="address" value="3/462, Malviya Nagar" required>
+                <label for="address">Address</label>
+            </div>
+        </div>
+
+        <div class="row3">
+            <div class="choose_photo">
+                <input type="file" name="upload" id="input" accept="image/jpeg, image/jpg , image/png">
+                <label for="input">
+                    <i class="fa-solid fa-arrow-up-from-bracket" style="color: #150047;"></i>&nbsp;
+                    choose photo
+                </label>
+                
+            </div>
+            <div class="JSON">
+                <button class="json" id="process_id">Upload to Json</button>
+            </div>
+        </div>
+    </div>
+    
+    <output id="output"></output>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

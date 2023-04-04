@@ -1,0 +1,40 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/home/thisisashugupta/Code-2022-12-22/forBTP/btp/smartContracts/contracts/SBTFactory.sol": {
+      "lastModificationDate": 1680588971043,
+      "contentHash": "012c351a8a422fb2c3adacdcb4d37f7a",
+      "sourceName": "contracts/SBTFactory.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.17"
+      ],
+      "artifacts": [
+        "SBTFactory"
+      ]
+    }
+  }
+}

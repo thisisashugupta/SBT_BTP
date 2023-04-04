@@ -1,0 +1,164 @@
+@font-face {
+    font-family: myFont;
+    src: url(pixel.ttf);
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url(btp-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: myFont;
+}
+.nav{
+    text-align: center;
+    width: 100%;
+    padding: 1px 0;
+    background: rgba(64, 0, 90, 0.585);
+    backdrop-filter: blur(2px);
+    border: 2px solid rgba(255, 255, 255, .05);
+    
+}
+
+.nav p{
+    font-size: 70px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
+.container{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 130px;
+    width: 75%;
+    margin: 35px  0;
+    background: rgba(0, 0, 0, 0.186);
+    backdrop-filter: blur(6px);
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 5px 5px 30px black;
+    padding-bottom: 35px;
+    
+}
+
+.row1{
+    width: 100%;
+    display: flex;
+    /* justify-content:space-between; */
+    justify-content: center;
+    gap: 35%;
+    
+
+}
+
+.row2{
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: center;
+    gap: 35%;
+    margin: 35px 0;
+}
+
+.row3{
+    width: 100%;
+    display: flex;
+    /* justify-content: space-around; */
+    justify-content: center;
+    gap: 50px;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+.row3 input[type="file"]{
+    display: none;
+}
+
+.row3 label{
+    display: inline-block;
+    background-color: #563264;
+    padding: 12px;
+    text-align: center;
+    border-radius: 9px;
+    box-shadow: 1px 1px 10px black;
+}
+.row3 button{
+    border: none;
+    outline: none;
+    padding: 13px;
+    background-color: #563264;
+    text-align: center;
+    border-radius: 9px;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-family: myFont;
+    box-shadow: 1px 1px 10px black;
+}
+.row3 label:hover,.row3 label:active, .row3 input:hover+label, .row3 input:active+label {
+    transform: scale(1.1);
+    background-color: rgb(67, 32, 80);
+    cursor: pointer;
+}
+.row3 button:hover{
+    transform: scale(1.1);
+    background-color: rgb(67, 32, 80);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+.input_field{
+    position: relative;
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.input_field input{
+    height: 28px;
+    width: 200px;
+    border: none;
+    outline: none;
+    appearance: none;
+    padding: 10px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: white;
+    background-color: rgba(240, 248, 255, 0);
+    border-bottom: 1px solid rgba(98, 0, 255, 0.389);
+}
+
+.input_field input:valid ~ label,
+.input_field input:focus ~ label{
+    transform: translateX(-130%);
+    color: rgb(255, 255, 255);
+}
+
+.input_field label{
+    position: absolute;
+    bottom: 7px;
+    left: 7px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: rgb(169, 169, 169);
+    font-size: 20px;
+}
