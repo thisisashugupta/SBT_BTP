@@ -2,42 +2,59 @@
 pragma solidity ^0.8.17;
 
 contract SBTFactory {
-    event AddedStudent(address acc, string cid);
+    //state variable
+    address public immutable i_uniAddress;
+    address[] private s_accountsArray;
+    mapping(address => string) private s_addressToCID;
 
-    address public uni;
+    //events
+    event AddedStudent(address _acc, string _cid);
 
+    //errors
+    error NotUniAccessDenied();
+    error StudentDoesNotExists();
+
+    //modifier
+    modifier onlyUni() {
+        if (msg.sender != i_uniAddress) revert NotUniAccessDenied();
+        _;
+    }
+
+    //constructor
     constructor() {
-        uni = msg.sender;
+        i_uniAddress = msg.sender;
     }
 
-    address[] private accountArray;
-    mapping(address => string) private addressToCID;
-
-    function addStudent(address acc, string memory cid) public onlyUni {
-        accountArray.push(acc);
-        addressToCID[acc] = cid;
-        emit AddedStudent(acc, cid);
+    //function to add a student
+    function addStudent(address _acc, string memory _cid) public onlyUni {
+        s_accountsArray.push(_acc);
+        s_addressToCID[_acc] = _cid;
+        emit AddedStudent(_acc, _cid);
     }
 
-    function studentExists(address acc) private view returns (bool) {
-        require(msg.sender == acc);
-        for (uint i = 0; i < accountArray.length; i++) {
-            if (accountArray[i] == acc) {
-                return true;
-            }
+    //function to check if student exists
+    function studentExists(address _acc) private view returns (bool) {
+        require(msg.sender == _acc);
+
+        //reading from state variables will take a lot of gas, so make an array in the memory here and iterate from that
+        //  for (uint i = 0; i < s_accountsArray.length; i++) {
+        //     if (s_accountsArray[i] == _acc) {
+        //         return true;
+        //     }
+        // }
+
+        //cheaper function
+        address[] memory accountsArray = s_accountsArray;
+
+        for (uint i = 0; i < accountsArray.length; i++) {
+            if (accountsArray[i] == _acc) return true;
         }
         return false;
     }
 
-    function searchStudent(address acc) public view returns (string memory) {
-        require(studentExists(acc));
-        return addressToCID[acc];
-    }
-
-    modifier onlyUni() {
-        require(msg.sender == uni);
-        _;
+    //function to search if the student exists
+    function searchStudent(address _acc) public view returns (string memory) {
+        if (!studentExists(_acc)) revert StudentDoesNotExists();
+        return s_addressToCID[_acc];
     }
 }
-// Deployed Contract Address: 0x64800F063Eb4FBD9AF3c9F8CDB7B787f4116558c
-// on goerli network
